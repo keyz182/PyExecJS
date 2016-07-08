@@ -3,6 +3,7 @@ class Error(Exception):
 
 
 class RuntimeError(Error):
+    '''Thrown when JavaScript runtime exits with non zero status'''
     def __init__(self, status, stdout, stderr):
         Error.__init__(self, status, stdout, stderr)
         self.status = status
@@ -11,8 +12,10 @@ class RuntimeError(Error):
 
 
 class ProgramError(Error):
+    '''Thrown when JavaScript script throws some exception'''
     pass
 
 
-class RuntimeUnavailableError(RuntimeError):
+class RuntimeUnavailableError(Error):
+    '''Thrown when JavaScript runtime is not available (e.g. not installed)'''
     pass
