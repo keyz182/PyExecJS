@@ -27,8 +27,7 @@ Node = r"""(function(program, execJS) { execJS(program) })(function() { #{source
 });"""
 
 
-JavaScriptCore = r"""(function(program, execJS) { execJS(program) })(function() {
-  return eval(#{encoded_source});
+JavaScriptCore = r"""(function(program, execJS) { execJS(program) })(function() { #{source}
 }, function(program) {
   var output;
   try {
@@ -72,8 +71,7 @@ SpiderMonkey = r"""(function(program, execJS) { execJS(program) })(function() { 
 """
 Nashorn = SpiderMonkey
 
-JScript = r"""(function(program, execJS) { execJS(program) })(function() {
-  return eval(#{encoded_source});
+JScript = r"""(function(program, execJS) { execJS(program) })(function() { #{source}
 }, function(program) {
   #{json2_source}
   var output, print = function(string) {
@@ -101,8 +99,7 @@ JScript = r"""(function(program, execJS) { execJS(program) })(function() {
 """
 
 PhantomJS = r"""
-(function(program, execJS) { execJS(program) })(function() {
-  return eval(#{encoded_source});
+(function(program, execJS) { execJS(program) })(function() { #{source}
 }, function(program) {
   var output;
   var print = function(string) {

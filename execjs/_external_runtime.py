@@ -163,7 +163,7 @@ class ExternalRuntime(AbstractRuntime):
             if status == "ok":
                 return value
             else:
-                raise exceptions.RuntimeError(value)
+                raise exceptions.ProgramError(value)
 
 
 def _is_windows():
